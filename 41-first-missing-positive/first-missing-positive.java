@@ -1,23 +1,26 @@
 class Solution {
-    public int firstMissingPositive(int[] arr) {
-       int i=0;
-       while(i<arr.length){
-        int correct=arr[i]-1;
-        if(arr[i]>0 &&
-        arr[i]<=arr.length && 
-        arr[i]!=arr[correct]){
-            int temp=arr[i];
-            arr[i]=arr[correct];
-            arr[correct]=temp;
-        }else{
-            i++;
+    public int firstMissingPositive(int[] nums) {
+        int i=0;
+        while(i<nums.length){
+            int c=nums[i]-1;
+            if(nums[i] > 0 && nums[i] <= nums.length && nums[i]!=nums[c]){
+                swap(nums,i,c);
+            }
+            else{
+                
+                i++;
+            }
         }
-       } 
-       for(int j=0;j<arr.length;j++){
-        if(arr[j] !=j+1 ){
-            return j+1;
+        for(int index=0;index<nums.length;index++){
+            if(nums[index]!=index+1){
+                return index+1;
+            }
         }
-       }
-       return arr.length+1;
+        return nums.length+1;
+    }
+    void swap(int[] arr ,int s,int e){
+        int temp=arr[s];
+        arr[s]=arr[e];
+        arr[e]=temp;
     }
 }
