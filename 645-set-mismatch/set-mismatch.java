@@ -1,22 +1,25 @@
 class Solution {
-    public int[] findErrorNums(int[] arr) {
+    public int[] findErrorNums(int[] nums) {
         int i=0;
-        while(i<arr.length){
-            int correct=arr[i]-1;
-            if(arr[i]!=arr[correct]){
-                int temp=arr[i];
-                arr[i]=arr[correct];
-                arr[correct]=temp;
-            }
-            else{
+        while(i<nums.length){
+            int c=nums[i]-1;
+            if(nums[i]!=nums[c]){
+                swap(nums,i,c);
+            }else{
                 i++;
             }
         }
-        for(int index=0;index<arr.length;index++){
-            if(arr[index]!=index+1){
-                return new int[] {arr[index],index+1};
+        for(int j=0;j<nums.length;j++){
+            if(nums[j]!=j+1){
+                return new int []{nums[j],j+1};
             }
         }
-        return new int[]{-1,-1};
+     return new int[]{-1, -1};
+        
+    }
+    void swap(int [] arr ,int s,int e){
+        int temp=arr[s];
+        arr[s]=arr[e];
+        arr[e]=temp;
     }
 }
