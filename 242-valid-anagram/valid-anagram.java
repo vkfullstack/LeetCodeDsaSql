@@ -1,12 +1,12 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
-        //convert both to lowercase
-        s=s.toLowerCase();
-        t=t.toLowerCase();
+        // //convert both to lowercase
+        // s=s.toLowerCase();
+        // t=t.toLowerCase();
 
-        // strip of all the white space
-        s=s.replace(" ","");
-        t=t.replace(" ","");
+        // // strip of all the white space
+        // s=s.replace(" ","");
+        // t=t.replace(" ","");
         // initialize the buckets array
         int [] counts = new int[26];
         // fill the buckets
